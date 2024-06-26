@@ -18,12 +18,12 @@ let cross = { name: 'cross', list: [] },
 
 function toggleVolume(element) {
     if (element.value == "true") {
-        element.querySelector('img').src = "/Tic-Tac-Toe/assets/volumeOFF.svg"
+        element.querySelector('img').src = "assets/volumeOFF.svg"
         element.value = "false"
         volume = 0
     } else {
         element.value = "true"
-        element.querySelector('img').src = "/Tic-Tac-Toe/assets/volumeON.svg"
+        element.querySelector('img').src = "assets/volumeON.svg"
         volume = .08
         music = new Audio("/Tic-Tac-Toe/music/keydown.wav")
         music.volume = volume*5
