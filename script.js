@@ -25,7 +25,7 @@ function toggleVolume(element) {
         element.value = "true"
         element.querySelector('img').src = "assets/volumeON.svg"
         volume = .08
-        music = new Audio("/Tic-Tac-Toe/music/keydown.wav")
+        music = new Audio("music/keydown.wav")
         music.volume = volume*5
         music.play()
     }
@@ -33,17 +33,17 @@ function toggleVolume(element) {
 
 function turnCounter(counter, element, tag) {
     if (counter % 2 == 0) {
-        element.querySelector("img").src = `/Tic-Tac-Toe/assets/cross${tag}.svg`
+        element.querySelector("img").src = `assets/cross${tag}.svg`
         if (!!element.dataset.index) { cross.list = [parseInt(element.dataset.index)] + cross.list }
     } else {
-        element.querySelector("img").src = `/Tic-Tac-Toe/assets/circle${tag}.svg`
+        element.querySelector("img").src = `assets/circle${tag}.svg`
         if (!!element.dataset.index) { circle.list = [parseInt(element.dataset.index)] + circle.list }
     }
 }
 
 function playTurn(element) {
     if (element.dataset.attempt == "false" && !winner) {
-        stroke = new Audio("/Tic-Tac-Toe/music/keydown.wav")
+        stroke = new Audio("music/keydown.wav")
         stroke.volume = volume*5
         stroke.play()
         turnCounter(counter, element, '')
@@ -55,9 +55,9 @@ function playTurn(element) {
 
         if (Array.from(document.querySelectorAll('.action')).filter(item => item.dataset.attempt == "false").length == 0 && !winner) {
             document.querySelector('.resultScreen').querySelector('p').innerText = ''
-            document.querySelector('.resultScreen').querySelector('img').src = "/Tic-Tac-Toe/assets/logo.svg"
+            document.querySelector('.resultScreen').querySelector('img').src = "assets/logo.svg"
             document.querySelector('.resultScreen').querySelector('span').innerText = `TIE`
-            music = new Audio("/Tic-Tac-Toe/music/tie.wav")
+            music = new Audio("music/tie.wav")
             music.volume = volume
             music.play()
             document.querySelector('.resultScreen').showModal()
@@ -79,7 +79,7 @@ function gameState(object) {
     try {
         (winState.filter(element => element.filter(value => object.list.includes(value)).length == 3))[0].forEach(element => {
             document.querySelector(`[data-index="${element}"]`)
-            document.querySelector(`[data-index="${element}"]`).querySelector('img').src = `/Tic-Tac-Toe/assets/${object.name}Win.svg`
+            document.querySelector(`[data-index="${element}"]`).querySelector('img').src = `assets/${object.name}Win.svg`
             document.querySelector(`[data-index="${element}"]`).classList.remove('basicDark')
             document.querySelector(`[data-index="${element}"]`).classList.add(object.name)
         })
@@ -91,18 +91,18 @@ function gameState(object) {
 
         if (!cpu) {
             winner = object.name
-            music = new Audio("/Tic-Tac-Toe/music/win.wav")
+            music = new Audio("music/win.wav")
             music.volume = volume
             music.play()
         } else {
             if (player == object.name) {
                 winner = "YOU"
-                music = new Audio("/Tic-Tac-Toe/music/win.wav")
+                music = new Audio("music/win.wav")
                 music.volume = volume
                 music.play()
             } else {
                 winner = "CPU"
-                music = new Audio("/Tic-Tac-Toe/music/lose.wav")
+                music = new Audio("music/lose.wav")
                 music.volume = volume
                 music.play()
             }
@@ -117,7 +117,7 @@ function gameState(object) {
 function restart(params) {
     switch (params) {
         case "forwards":
-            music = new Audio("/Tic-Tac-Toe/music/restart.wav")
+            music = new Audio("music/restart.wav")
             music.volume = volume
             music.play()
             document.querySelector('.restartScreen').showModal()
@@ -203,7 +203,7 @@ function cleanPlayGround() {
         item.setAttribute("class", "action basicDark")
         item.disabled = false
         item.dataset.attempt = "false"
-        item.querySelector("img").src = "/Tic-Tac-Toe/assets/empty.svg"
+        item.querySelector("img").src = "assets/empty.svg"
         cross.list = []
         circle.list = []
     })
