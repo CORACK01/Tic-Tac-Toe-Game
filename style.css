@@ -381,6 +381,11 @@ body {
     --shadow-color: var(--shadow-dark);
 }
 
+.bg{
+    background-color: #f0f0f0;
+    --shadow-color:#ababab;
+}
+
 button {
     border: none;
     outline: none;
