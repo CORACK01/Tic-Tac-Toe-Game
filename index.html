@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/logo.svg" type="image/x-icon">
+    <title>Tic-Tac-Toe</title>
+</head>
+
+<body>
+    <div class="gameScreen">
+        <div class="tags">
+            <div class="logo" onclick="home()">
+                <img src="assets/logo.svg">
+            </div>
+            <div class="turnDisplay basicDark">
+                <img src="assets/crossTag.svg">
+                <span>TURN</span>
+            </div>
+            <div class="actions">
+                <button class="music basicLight" onclick="toggleVolume(this)" value="false">
+                    <img src="assets/volumeOFF.svg">
+                </button>
+                <button class="reset basicLight" onclick="restart('forwards')">
+                    <img src="assets/reload.svg">
+                </button>
+            </div>
+        </div>
+        <div class="playGround">
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="1">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="2">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="3">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="4">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="5">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="6">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="7">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="8">
+                <img src="assets/empty.svg">
+            </button>
+            <button class="action basicDark" onclick="playTurn(this)" data-attempt="false" data-index="9">
+                <img src="assets/empty.svg">
+            </button>
+        </div>
+        
+    </div>
+
+    <dialog class="resultScreen">
+        <div class="wrapper">
+            <p class="player"></p>
+            <div class="result">
+                <img src="assets/empty.svg">
+                <span>
+                    TAKES THE ROUND
+                </span>
+            </div>
+            <div class="Actionbtns">
+                <button onclick="winAction(this)" class="cross">QUIT</button>
+                <button onclick="winAction(this)" class="circle">NEXT ROUND</button>
+            </div>
+        </div>
+    </dialog>
+    <dialog class="restartScreen">
+        <div class="wrapper">
+            <span>
+                RESTART GAME?
+            </span>
+            <div class="Actionbtns">
+                <button onclick="restart('cancel')" class="basicLight">NO, CANCEL</button>
+                <button onclick="restart('backwards')" class="circle">YES RESTART</button>
+            </div>
+        </div>
+    </dialog>
+    <div class="homeScreen">
+        <div class="wrapper">
+            <div class="logo">
+                <img src="assets/logo.svg">
+            </div>
+            <div class="selection">
+                <p>
+                    PICK PLAYER 1'S MARK
+                </p>
+                <button class="option" style="--direction:-4%;--select-color:#F5F7F8;" data-type="cross" onclick="select(this)" data-select="true">
+                    <img src="assets/cross.svg">
+                </button>
+                <button class="option" style="--direction:4%;--select-color:#4ba557;" data-type="circle" onclick="select(this)" data-select="false">
+                    <img src="assets/circleTag.svg">
+                </button>
+                <span>
+                    REMEMBER : X GOES FIRST
+                </span>
+            </div>
+            <div class="Actionbtns">
+                <button onclick="selectOPP(this)" data-choice="cpu" class="cross">NEW GAME (VS CPU)</button>
+                <button onclick="selectOPP(this)" data-choice="player" class="circle">NEW GAME (VS PLAYER)</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
