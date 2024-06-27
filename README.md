@@ -58,8 +58,7 @@ This project is tagged as intermediate in Frontend Mentor and is intended for pr
 
 ## Coding Map
 
-I started with cloning the designs with html and css from the [frontend-mentor-challenges](https://www.frontendmentor.io/challenges) . The challenge I faced was creating all these screens without a page redirect. This was achieved by the `<dialog>` html element. After that I started working on the javascript code for the project . Whole game is supported by a single js file which includes all the button functionalities and the computer scripts baked into them . The major setback in here was to develop code for recognizing the win states of the game. This still leaves me unsatisfied as the solution I made is not general enough.
-After this I added music and worked on responsiveness of the app.
+I started with cloning the designs with html and css from the [frontend-mentor-challenges](https://www.frontendmentor.io/challenges) . The challenge I faced was creating all these screens without a page redirect. This was achieved by the `<dialog>` html element. After that I started working on the javascript code for the project . Whole game is supported by a single js file which includes all the button functionalities and the computer scripts baked into them . Another challenge I faced was to develop code for recognizing the win states of the game. After this I added music and worked on responsiveness of the app.
 
 ## Deployment 
 
