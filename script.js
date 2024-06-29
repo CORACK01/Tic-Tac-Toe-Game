@@ -26,7 +26,7 @@ function toggleVolume(element) {
         element.querySelector('img').src = "assets/volumeON.svg"
         volume = .08
         music = new Audio("music/keydown.wav")
-        music.volume = volume*5
+        music.volume = volume * 5
         music.play()
     }
 }
@@ -44,7 +44,7 @@ function turnCounter(counter, element, tag) {
 function playTurn(element) {
     if (element.dataset.attempt == "false" && !winner) {
         stroke = new Audio("music/keydown.wav")
-        stroke.volume = volume*5
+        stroke.volume = volume * 5
         stroke.play()
         turnCounter(counter, element, '')
         counter++
@@ -217,21 +217,23 @@ function cleanPlayGround() {
 
 function cpuScript(mark) {
     let leftSpaces = Array.from(document.querySelectorAll('.action')).filter(item => item.dataset.attempt == "false")
-    if (mark == cross.name && counter % 2 == 0) {
-        try {
-            playTurn(selectRandom(
-                leftSpaces.filter(item => Array.from(new Set((winState.filter(element => element.filter(value => circle.list.includes(value)).length == 2)).reduce((first, second) => first.concat(second)))).includes(parseInt(item.dataset.index)) && item.dataset.attempt == "false")
-            ))
-        } catch (error) {
-            playTurn(selectRandom(leftSpaces))
-        }
-    } else if (mark == circle.name && counter % 2 != 0) {
-        try {
-            playTurn(selectRandom(
-                leftSpaces.filter(item => Array.from(new Set((winState.filter(element => element.filter(value => cross.list.includes(value)).length == 2)).reduce((first, second) => first.concat(second)))).includes(parseInt(item.dataset.index)) && item.dataset.attempt == "false")
-            ))
-        } catch (error) {
-            playTurn(selectRandom(leftSpaces))
+    if (leftSpaces[0]) {
+        if (mark == cross.name && counter % 2 == 0) {
+            try {
+                playTurn(selectRandom(
+                    leftSpaces.filter(item => Array.from(new Set((winState.filter(element => element.filter(value => circle.list.includes(value)).length == 2)).reduce((first, second) => first.concat(second)))).includes(parseInt(item.dataset.index)) && item.dataset.attempt == "false")
+                ))
+            } catch (error) {
+                playTurn(selectRandom(leftSpaces))
+            }
+        } else if (mark == circle.name && counter % 2 != 0) {
+            try {
+                playTurn(selectRandom(
+                    leftSpaces.filter(item => Array.from(new Set((winState.filter(element => element.filter(value => cross.list.includes(value)).length == 2)).reduce((first, second) => first.concat(second)))).includes(parseInt(item.dataset.index)) && item.dataset.attempt == "false")
+                ))
+            } catch (error) {
+                playTurn(selectRandom(leftSpaces))
+            }
         }
     }
 }
